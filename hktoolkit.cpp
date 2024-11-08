@@ -18,7 +18,7 @@ void ToggleTitleBar(HWND hWnd)
         exStyle &= ~WS_EX_DLGMODALFRAME;
         SetWindowPos(hWnd, NULL,
             rect.left,
-            int(mi.rcWork.top - 30 * dpiScale),
+            int(mi.rcWork.top - 30 * dpiScale), 
             rect.right - rect.left,
             int(mi.rcWork.bottom - mi.rcWork.top + 30 * dpiScale),
             SWP_NOZORDER | SWP_NOACTIVATE);
@@ -88,7 +88,7 @@ void ResizeWindow(HWND hWnd) {
     if (rect.left < 0) rect.left = 0;
     else if (rect.top < 0) rect.top = 0;
     else if (rect.right > mi.rcMonitor.right) rect.right = mi.rcMonitor.right;
-    else if (rect.left > mi.rcMonitor.left) rect.left = mi.rcMonitor.left;
+    else if (rect.bottom > mi.rcMonitor.bottom) rect.bottom = mi.rcMonitor.bottom;
 
     SetWindowPos(hWnd, NULL,
         rect.left,
